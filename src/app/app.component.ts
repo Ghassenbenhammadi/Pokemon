@@ -9,6 +9,7 @@ import { POKEMONS } from './mock-pokemon-list';
 })
 export class AppComponent implements OnInit {
   pokemons: Pokemon[] =  POKEMONS;
+  pokemonSelected: Pokemon|undefined;
 constructor(){
 
 }
@@ -16,10 +17,15 @@ ngOnInit(): void {
   console.table(this.pokemons);
   
 }
-selectPokemon(event: MouseEvent) {
-  const index: number = +(event.target  as HTMLInputElement).value;
+selectPokemon(pokemon: Pokemon) {
+//  const pokemon : Pokemon|undefined = this.pokemons.find(pokemon => pokemon.id == +pokemonId);
  // ajouter +pour transformation string to number
-  console.log(`Vous avez cliqué sur le pokémon ${this.pokemons[index].name}`);
-  
+ if(pokemon){
+  console.log(`Vous avez demandé le pokémon ${pokemon.name}`);
+  this.pokemonSelected = pokemon;
+ } else {
+  console.log('Vous avez demandé un pokémon qui n\existe pas');
+  this.pokemonSelected = pokemon;
+ }
 }
 }

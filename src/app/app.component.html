@@ -1,10 +1,20 @@
-<h1> Liste des Pokémons</h1>
-<input type="number"
-(click)="selectPokemon($event)"
->
-<p >{{ pokemons[0].name }}</p>
-<p>{{ pokemons[1].name }}</p>
-<p>{{ pokemons[2].name }}</p>
-<p>{{ pokemons[3].name }}</p>
-<p>{{ pokemons[4].name }}</p>
-<p>{{ pokemons[5].name }}</p>
+<h1 class="center"> Liste des Pokémons</h1>
+
+<div class="container">
+    <div class="row">
+        <div *ngFor="let pokemon of pokemons " class="col m4 s6">
+
+            <div class="card horizontal" appBorderCard (click)="selectPokemon(pokemon)" >
+                <div class="card-image">
+                    <img [src]="pokemon.picture" />
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p>{{ pokemon.name}}</p>
+                            <p><small>{{ pokemon.created}}</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
