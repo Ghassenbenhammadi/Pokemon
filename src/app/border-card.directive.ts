@@ -28,8 +28,8 @@ export class BorderCardDirective {
   setHeight(height:number) {
     this.el.nativeElement.style.height = height+'px';
   }
-  setBorder(color: string){
-    let border = 'solid 4px' + color;
-    this.el.nativeElement.style.border= border;
+  setBorder(color: string) {
+    let border = '4px solid ' + color; // Added 'px solid'
+    this.el.nativeElement.style.border = border;
   }
 }
