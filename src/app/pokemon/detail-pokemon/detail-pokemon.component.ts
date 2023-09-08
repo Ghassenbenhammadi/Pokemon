@@ -10,22 +10,25 @@ import { PokemonService } from '../pokemon.service';
   ]
 })
 export class DetailPokemonComponent implements OnInit {
- constructor(
-  private route: ActivatedRoute,
-  private router :Router,
-  private pokemonService: PokemonService){}
- pokemons: Pokemon[];
- pokemon:Pokemon|undefined;
- 
- ngOnInit() {
-  const pokemonId:string|null = this.route.snapshot.paramMap.get('id');
-  if(pokemonId) {
-    this.pokemon = this.pokemonService.getPokemonById(+pokemonId);
-  } else {
-    this.pokemon = undefined;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private pokemonService: PokemonService) { }
+  pokemons: Pokemon[];
+  pokemon: Pokemon | undefined;
+
+  ngOnInit() {
+    const pokemonId: string | null = this.route.snapshot.paramMap.get('id');
+    if (pokemonId) {
+      this.pokemon = this.pokemonService.getPokemonById(+pokemonId);
+    } else {
+      this.pokemon = undefined;
+    }
   }
-}
-goBack(){
-  this.router.navigate(['/pokemons']);
-}
+  goBack() {
+    this.router.navigate(['/pokemons']);
+  }
+  goToEditPokemon(pokemon: Pokemon) {
+    this.router.navigate(['edit/pokemon', pokemon.id]);
+  }
 }
