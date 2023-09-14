@@ -5,15 +5,12 @@ import { Pokemon } from '../pokemon';
   selector: 'app-add-pokemon',
   template: `
     <h2 class="center">
-      Ajout un nouveau pokemon
+      Ajout un nouveau pokemon</h2>
       <app-pokemon-form [pokemon]="pokemon"></app-pokemon-form>
-    </h2>
   `
 })
 export class AddPokemonComponent  implements OnInit {
  
-
-
   pokemon: Pokemon;
   ngOnInit(){
     this.pokemon =  new Pokemon();
